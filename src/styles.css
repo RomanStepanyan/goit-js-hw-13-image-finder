@@ -17,4 +17,37 @@ body {
    * CSS image reference example.
    */
   background-image: url('./images/bg-pattern.png');
+
 }
+
+.search-form {
+  text-align: center;
+}
+.load-more-btn{
+  display: block;
+  margin: 0 auto;
+}
+
+.stats-item{
+  margin: 0 auto;
+}
+.material-icons{
+  display: block;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  list-style: none;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
