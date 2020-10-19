@@ -13,25 +13,37 @@ function getInputQuery(event){
     refs.gallery.innerHTML = "";
     refs.serch.reset();
     apiService.resetPage();
-    apiService.fetchImg().then(hits => makeImageMarkup(hits))
+    refs.btnLoadMore.classList.add('is-hidden');
+    apiService.fetchImg().then(hits => {
+        makeImageMarkup(hits);
+        refs.btnLoadMore.classList.remove('is-hidden');
+    })
 }
 
 refs.btnLoadMore.addEventListener('click', ()  =>{
-    apiService.fetchImg().then(hits => makeImageMarkup(hits))
+    apiService.fetchImg().then(hits => {
+        makeImageMarkup(hits);
+        window.scrollTo({
+            top: document.documentElement.offsetHeight,
+            behavior: 'smooth',
+          });
+    })
  
 })
 
+import * as basicLightbox from 'basiclightbox'
 
 
+refs.gallery.addEventListener('click', event => {
+    
+    console.log(event);
+    console.log(event.target);
+    const imageSrc = event.target.currentSrc;
+    const imageHeight = event.target.naturalHeight;
+    const imageWidth = event.target.naturalWidth;
+    console.log(imageSrc);
+    const instance = basicLightbox.create(`<img src="${imageSrc}" width="${imageWidth}" height="${imageHeight}">`)
+    instance.show()
+})
 
 
-
-// export default function fetchImg (serchQuery, page=1){
-
-//     const apiKey = "18710894-cf47c53574f7c60443851e774"
-//     const url =`https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${serchQuery}&page=${page}&per_page=12&key=${apiKey}`
-//     // refs.gallery.innerHTML = "";
-//     // refs.serch.reset();
-//     return fetch(url).then(res => res.json())
-
-//     }
