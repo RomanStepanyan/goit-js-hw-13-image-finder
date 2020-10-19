@@ -9,8 +9,6 @@
       rel="stylesheet"
     />
     <title>Image finder</title>
-
-  
   </head>
 
   <body>
@@ -22,15 +20,15 @@
         placeholder="Search images..."
       />
     </form>
+
     <ul class="gallery"></ul>
     <div class="button-wraper">
       <button type="button" class="load-more-btn is-hidden">Load more</button>
     </div>
-
-    <!--
-      Модальное окно для полноразмерного изображения
-      Для того чтобы открыть, необходимо добавить на div.lightbox CSS-класс is-open
-    -->
+    <!-- <div class="lighbox js-lightbox">
+      
+    </div> -->
+    <!-- //= ./modal-window.html -->
     <div class="lightbox js-lightbox">
       <div class="lightbox__overlay"></div>
 
@@ -43,8 +41,7 @@
         class="lightbox__button"
         data-action="close-lightbox"
       ></button>
-      
     </div>
-
+    
   </body>
 </html>
